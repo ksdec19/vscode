@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    //함수표현식 >> 익명함수(function())를 만들어서 그 주소값을 대입
+    const greet = function (evt) {
+      console.log(evt);
+      console.log('클릭!');
+      window.alert('클릭!');
+      const $button = evt.target;
+      $button.style.backgroundColor = 'yellow';
+    }
+    const init = function () {
+      const $button = window.document.querySelector('button');
+      $button.addEventListener("click", greet);
+    }
+
+    document.addEventListener("DOMContentLoaded", init);
+
+  </script>
+</head>
+<body>
+  <button>클릭</button>
+</body>
+</html>

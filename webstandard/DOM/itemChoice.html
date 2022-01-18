@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="util.js"></script>
+</head>
+<body>
+  <h3>프로젝트 아이템 발표 순서</h3>
+  <hr>
+  <button id="order">순서 정하기</button>
+  <ol class="wrap"></ol>
+
+  <script>
+
+    order.addEventListener('click', random, false);
+
+    function random() {
+
+      //컨텐츠 비우기
+      document.querySelector('ol.wrap').innerHTML = '';
+
+      const arr = ['권영경', '김강현', '김무년', '김소라', '김영빈',
+                   '김재엽', '박성모', '박현근', '배지희', '유기상',
+                   '이규민', '이한봄', '전은우', '최수빈', '최재훈', '하태우'];
+      // console.log(Math.floor(Math.random()*16));
+      const result = [];
+
+      for (let i = 0; i < arr.length; i++) {
+        let idx = Math.floor(Math.random() * arr.length);
+
+        //중복제거
+        let isExist = false;
+        for (let j = 0; j < result.length; j++) {
+          if (arr[idx] == result[j]) {
+            isExist = true;
+            break;
+          }
+        }
+
+        if (isExist) {
+          i--;
+          continue;
+        }
+        result.push(arr[idx]);
+      }
+
+      const $fragment = document.createDocumentFragment();
+
+      // 결과 출력
+      for (let i = 0; i < arr.length; i++) {
+        // console.log(i + 1, result[i]);
+        $fragment.appendChild(makeElement('li', null, result[i]));
+      }
+
+      document.querySelector('ol.wrap').appendChild($fragment);
+    }
+  </script>
+</body>
+</html>

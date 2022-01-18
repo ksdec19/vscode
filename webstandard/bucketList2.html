@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    p {
+      display: inline-block;
+      width: 400px;
+    }
+  </style>  
+  <script>
+    var cnt = 0;
+    function btnEvent() {
+      var text = document.getElementById('inputText').value; 
+      var myList = document.getElementById('myList');
+      var newList = document.createElement('li');
+
+      newList.innerHTML = '<p>' + text + '</p> <button onclick="modify(this)">수정</button> <button onclick="del(this)">삭제</button>';
+ 
+      myList.appendChild(newList)
+
+      document.getElementById('inputText').value = '';
+    }
+
+    function del(obj) {
+      var o = obj.parentElement;
+      o.remove();
+      console.log('삭제');
+    }
+
+    function modify(obj) {
+      var o = obj.parentElement;
+      o.innerHTML = '<p><input style="width : 350px;"></p> <button onclick="modifyCom(this)">완료</button>';
+      console.log('수정화면');
+    }
+
+    function modifyCom(obj) {
+      console.log('등록화면');
+      var o = obj.parentElement;
+      var text = o.firstChild.firstChild.value;
+      o.innerHTML = '<p>' + text + '</p> <button onclick="modify(this)">수정</button> <button onclick="del(this)">삭제</button>'
+    }
+
+
+
+  </script>
+</head>
+
+<body>
+  <h3>나만의 버킷 리스트 만들기</h3>
+  <hr>
+  <input id="inputText" style="width: 400px;"></input>
+  <button id="btn" onclick="btnEvent()">등록</button>
+  <div>
+    <ol id="myList" type="1">
+    </ol>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* *{outline:1px solid red;} */
+    :root {
+      --height-size: 10px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      /* background-color: #666; */
+    }
+
+    nav a {
+      color: white;
+    }
+
+    .depth1 {
+      background-color: #666;
+    }
+
+    .depth1>li {
+      display: inline-block;
+      position: relative;
+      height: calc(var(--height-size)*4);
+      width: 60px;
+    }
+
+    .depth2 {
+      background-color: #666;
+    }
+
+    .depth1>li:hover .depth2 {
+      display: block;
+      transition: display 2s;
+    }
+
+    .depth2 {
+      display: none;
+      position: absolute;
+      top: calc(var(--height-size)*3);
+      left: 0;
+    }
+
+    .ad {
+      width: 100px;
+      height: 200px;
+      background-color: yellowgreen;
+      color: white;
+      position: fixed;
+      bottom: 100px;
+      right: 20px;
+
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <ul class="depth1">
+      <li>
+        <a href="#">menu1</a>
+        <ul class="depth2">
+          <li><a href="http://www.naver.com">menu11</a></li>
+          <li><a href="http://www.google.com">menu12</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">menu2</a>
+        <ul class="depth2">
+          <li><a href="">menu21</a></li>
+          <li><a href="">menu22</a></li>
+        </ul>
+      </li>
+      <li><a href="#">menu3</a></li>
+    </ul>
+  </nav>
+  <main>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis mollitia sequi nihil molestiae, sunt animi doloribus.
+    Temporibus debitis est omnis. Animi suscipit voluptate consequuntur magni itaque amet aspernatur dolorem eveniet.
+    Quidem repellat quasi dicta iste eaque error in, quod harum. Quo doloremque dignissimos odio beatae ullam, similique
+    distinctio iusto repellat modi magnam voluptatibus ab excepturi maxime laudantium impedit, ipsa quos!
+    Ducimus officiis harum sapiente nobis sequi illum eveniet veritatis, nihil vero blanditiis optio. Perspiciatis fuga
+    beatae aspernatur eveniet aperiam error sed dolor, facere similique quisquam eligendi nostrum harum aliquam. Ipsam!
+    Voluptates perferendis alias optio inventore, autem doloribus enim minima assumenda culpa ea, molestiae hic quidem,
+    corrupti laborum magni voluptatibus quam similique. Placeat neque possimus aspernatur unde aliquid commodi
+    consequuntur repellat?
+    Similique, cum, ad facere at aspernatur optio pariatur deleniti inventore adipisci nulla consequuntur beatae
+    exercitationem? Nisi a ipsum, error repellat pariatur beatae, magni est, tempora atque quae asperiores itaque
+    quisquam.
+    Dolores cum rem optio facilis eos eligendi incidunt corporis consequuntur aspernatur explicabo sed, ullam
+    accusantium magni necessitatibus corrupti molestias perspiciatis laudantium cupiditate mollitia nihil totam
+    voluptas! Earum praesentium voluptas provident!
+    Excepturi enim repellendus molestias nobis ex sit necessitatibus sint quidem laborum, ullam sapiente possimus
+    blanditiis beatae? Quas eius molestias beatae quidem vel fugit nisi? Similique eveniet debitis veritatis deleniti.
+    Distinctio.
+    Ratione ipsum beatae odit numquam? Iusto tempora blanditiis culpa maxime, iste commodi. Eaque ipsam, architecto illo
+    ipsa minima, voluptates libero autem magni culpa aperiam laborum ab repellendus sapiente dolorem aut.
+    Vel praesentium molestias cumque officia laudantium animi error, mollitia doloribus nihil voluptates in neque
+    numquam, asperiores optio eaque culpa molestiae. Eligendi natus quasi corporis? Incidunt, dolor. Ea omnis at
+    incidunt.
+    Illum harum ex corrupti! Possimus rerum cum unde cupiditate harum dolorem voluptatibus eligendi? In iusto, facere ea
+    at explicabo nostrum aliquam assumenda optio placeat, nulla sapiente architecto debitis velit harum.
+    Dolor voluptatibus ipsam commodi nobis quas repellendus sunt obcaecati explicabo. Deserunt sit saepe quo eius magnam
+    sint aliquam provident harum expedita inventore earum, totam repellendus ipsum tenetur! Recusandae, architecto nam.
+  </main>
+
+  <div class="ad">
+    <p>광고이미지</p>
+  </div>
+
+</body>
+
+</html>

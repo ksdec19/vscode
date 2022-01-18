@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {outline: 1px solid red;}
+    body {
+      background-color: #333; /* #333333 */
+    }
+    .wrap {
+      width : 600px;
+      margin: 0 auto;
+      margin-top: 20px;   
+      position: relative; 
+    }
+    .box {
+      height: 150px;
+      text-align: center;
+      line-height: 150px;
+      text-transform: uppercase;
+
+    }
+    .box1 {
+      background-color: #fff;
+    }
+    .box2 {
+      background-color: turquoise;
+    }
+    .box3 {
+      background-color: violet;
+    }
+    .box5 {
+      background-color: yellow;
+    }
+    .box4 {
+      background-color: #fff;
+    }
+    /* .box5 {
+      position: relative;
+      left: 400px;
+      top: -320px;
+    } */
+    .box5 {
+      position: absolute;
+      left: 400px;
+      top: 150px;
+    }
+
+    .box2, .box3, .box5 {
+      width: 33.33%;
+      float: left;
+      margin: 10px 0;      
+    }
+    .box4 {
+      clear: both;
+    }
+
+  </style>
+  
+</head>
+<body>
+  <div class="wrap">
+    <div class="box box1">BOX 1</div>
+    <div class="box box2">BOX 2</div>
+    <div class="box box3">BOX 3</div>
+    <div class="box box4">BOX 4</div>
+    <div class="box box5">BOX 5</div>
+  </div>
+</body>
+</html>

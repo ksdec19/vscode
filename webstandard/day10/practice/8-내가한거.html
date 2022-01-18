@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h3>아이템을 클릭하면 1.3배 크기로</h3>
+  <hr>
+  <p>여름방학 때 하고 싶은 것들</p>
+  <ul>
+    <li id="item1">자전거로 대한민국 일주</li>
+    <li id="item2">책 100권 읽기</li>
+    <li id="item3">철인 3종 경기 준비</li>
+    <li id="item4">자바스크립트 정복</li>
+  </ul>
+  <script>
+    const obj1 = document.getElementById('item1');
+      obj1.onclick = function(){
+              obj1.style.fontSize = '1.3em';
+   }
+   const obj2 = document.getElementById('item2');
+      obj2.onclick = function(){
+              obj2.style.fontSize = '1.3em';
+   }
+   const obj3 = document.getElementById('item3');
+      obj3.onclick = function(){
+              obj3.style.fontSize = '1.3em';
+   }
+   const obj4 = document.getElementById('item4');
+      obj4.onclick = function(){
+              obj4.style.fontSize = '1.3em';
+   }
+
+  </script>
+</body>
+</html>

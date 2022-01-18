@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>설문조사</title>
+  <link rel="stylesheet" href="survey5.css">
+</head>
+<body>
+<header>
+  <h2>설문지</h2>
+  <p>소프트웨어 기술에 대한 의견을 듣습니다. 많은 참여 부탁드립니다.</p>
+</header>
+<!-- <hr> -->
+<section>
+  <form action="서버프로그램">
+    <p>
+      <formspan>학년</formspan>
+      <input value="1" type="radio" name="grade" id="1st" checked>1학년
+      <input value="2" type="radio" name="grade" id="2nd">2학년
+      <input value="3" type="radio" name="grade" id="3rd">3학년
+      <input value="4" type="radio" name="grade" id="4th">4학년
+    </p>
+    <p>
+      <formspan>성별</formspan>
+      <input value="1" type="radio" name="sex" id="men">남
+      <input value="2" type="radio" name="sex" id="women" checked>여
+    </p>
+    <p>
+      <formspan>관심분야</formspan>
+      <select name="interest" id="">
+        <option value="">===선택===</option>
+        <option value="1">모바일 소프트웨어</option>
+        <option value="2">PC 소프트웨어</option>
+        <option value="3">관심없음</option>
+      </select>
+    </p>
+   <p>
+     <formspan>진로(다중 선택)</formspan> 
+      <input type="checkbox" name="개발" value="1" checked>개발
+      <input type="checkbox" name="기획" value="2">기획
+      <input type="checkbox" name="영업" value="3">영업
+      <input type="checkbox" name="창업" value="4">창업
+   </p>
+    <p>
+      <formspan>남기고 싶은 말</formspan>  
+      <textarea name="comments" cols="40" rows="10" placeholder="글을 남겨주세요"></textarea>
+    </p>
+  </form>
+</section>
+<footer>
+  Copyright 2017 by Kitae
+</footer> 
+</body>
+</html>

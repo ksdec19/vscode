@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {outline: 1px solid red;}
+    .html .body {
+      height: 100%; margin: 0;
+    }
+    .top {
+      background-color: yellow;
+      height: 50px;
+    }
+    .top > p {
+      display:inline-block;
+      
+    }
+    .header {
+      background-color: skyblue;
+      text-align: center;
+      height: 200px;
+   
+    }
+    .menu {
+      background-color: turquoise;     
+      height: 50px;
+      
+    }
+    .menuText {
+      width: 850px;
+      margin: 0 auto;
+    }
+
+    .main {
+      margin: 0 auto;
+      width: 800px;
+      height: 400px;
+      
+    }
+    .sidebar {
+      background-color: red;
+      text-align: center;
+      float: left;
+      width: 200px;
+      height: 400px;
+
+      
+    }
+    .content {
+      background-color: blue;
+      text-align: center;
+      width: 600px;
+      height: 400px;
+      float: right;
+    }
+    .footer {
+      background-color: gray;
+      height: 200px;
+      text-align: center;
+      clear: both;
+    }
+
+    .top ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .top ul > li {
+      display: inline-block;
+      text-align: center;
+      width: 80px;
+      height: 30px;
+    }
+    .menu ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 0;
+    }
+    .menu ul > li {
+      display: inline-block;
+      width: 60px;
+      height: 30px;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div class="top">
+    
+    
+        <p>log-in</p>
+        <p>|</p>
+        <p>Event sale</p>
+      
+    
+  </div>
+  <header class="header">header</header>
+  <div class="menu">
+    <div class="menuText">
+      <menu>
+        <ul>
+          <li>menu1</li>
+          <li>menu2</li>
+          <li>menu3</li>
+          <li>menu4</li>
+          <li>menu5</li>
+        </ul>
+      </menu>
+    </div>
+  </div>
+  <div class="main">
+    <div class="sidebar">sidebar</div>
+    <div class="content">content</div>
+  </div>
+  <footer class="footer">footer</footer>
+  
+</body>
+</html>

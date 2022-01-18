@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  * {outline: 1px solid red;}   /*  " * "  - 모든 요소에 적용 */
+  div{
+    box-sizing:content-box;
+    width: 50px; height: 50px;    /* content의 사이즈 */
+  }
+  .box1{
+    /* padding: 5px;    상, 하, 좌, 우 각각 5px씩 늘어남 */
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+
+    border:5px solid gray;
+    margin-bottom: 5px;
+    background-color: yellow;    
+    }
+  .box2{
+    background-color: blue;
+    border-radius: 10%; 
+    }
+  .box3{
+    background-color: pink;
+    border: 10px solid greenyellow;
+    padding: 10px 50px; /* y축 x축 */
+    padding: 10px 50px 100px;  /* top x축 right */
+    padding: 10px 30px 50px 70px;   /* top right bottom left */
+    }
+  .box4{
+    box-shadow: 5px 5px 1px 1px rgb(0,0,0,.1);
+  }
+
+  
+</style>
+<body>
+  <div class="box1">box1</div>
+  <div class="box2">box2</div>
+  <div class="box3">box3</div>
+  <div class="box4">box4</div>
+  
+</body>
+</html>

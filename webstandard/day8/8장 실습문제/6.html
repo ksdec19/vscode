@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function handler() {                                            // 2) handler()함수 내용을 설정
+      const answer = window.prompt('HTML 텍스트 혹은 그냥 텍스트를 입력하세요');    // 3) prompt()에서 입력한 내용을 answer에 저장
+      // console.log(answer);
+      // case 1)
+      // obj.innerHTML = answer;
+      // case 2)
+      // document.querySelector('p').innerHTML = answer;
+      // case 3)
+      const $pTag = document.querySelector('p');                      // 4) 
+      $pTag.innerHTML = answer;
+    }
+
+
+
+  </script>
+</head>
+<body>
+  <h3>innerHTML</h3>
+  <hr>
+  <p onclick="handler()">이번 여름에는 어디로 여행을 갈까요?</p>        <!-- 1) 클릭 하면 handler() 함수가 실행되도록 작성 --!>
+</body>
+</html>

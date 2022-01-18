@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #clock {
+      display: inline;
+      width: 150px;
+      color: #999;
+      padding: 3px 10px;  /* y축, x축 */
+      background-color: rgb(0, 0, 255, 0.1);
+      border: 1px solid rgb(0, 0, 255, 0.8);
+    }
+
+    #clock.on {
+      color: #000;
+      background-color: rgb(0, 0, 255, 0.4);  /* y축, x축 */
+    }
+
+  </style>
+</head>
+<body>
+  <h3>div 태그에 시계 만들기</h3>
+  <p>시계를 클릭하면 시계가 멈추고 다시 클릭하면 가기 시작한다</p>
+  <hr>
+  <div id="clock" class="on">오전 00:00:00</div>
+  <script>
+
+    let timer = window.setInterval(handler, 1000);
+    const $clock = document.getElementById('clock');
+
+    $clock.addEventListener('click', evt => {
+
+      $clock.classList.toggle("on");
+
+      // clock stop
+      console.log(timer);
+      if(timer != null){
+        window.clearInterval(timer);
+        timer = null;
+        
+        // clock start
+      } else{
+        timer = window.setInterval(handler, 1000);
+        handler();
+      }
+
+    }, false);
+
+    // 타이머 제거
+    // function cancleClock(evt){
+    //  window.clearInterval(timer);
+    // }
+
+    // 시간 갱신
+    function handler() {
+      const currTime = getTime();
+      console.log(currTime);
+      $clock.textContent = currTime;
+    }
+
+    // 현재시간 반환
+    function getTime() {
+      const today = new Date();
+      const timeStr = today.toLocaleString();
+      const time = timeStr.substr(timeStr.indexOf('오'));
+      return time;
+    }
+  </script>
+</body>
+</html>

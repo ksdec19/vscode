@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html {border: solid 1px red;
+    height: 1600px;}
+
+    /* 제목 영역(카페홍길동) */
+    .top {
+       width: 100%; height: 200px; 
+      /* background-color: rgb(212, 255, 111); */
+    }
+    .top .topBox {
+      width: 90%; height: 90%; 
+      /* background-color: #fff; border: solid 1px black; */
+      font-size: 50px;
+      text-align:center;
+      padding-top: 15px;
+      margin: 0 auto;
+    }
+    /* end of 제목영역 */
+
+
+
+    /* 로그인,회원가입 버튼 있는 영역 */
+    .nav {
+      width: 100%; height: 50px;
+       /* background-color: green; */
+    }
+    .nav .navBox {
+      width: 90%; height: 90%; 
+      /* background-color: #fff; border: solid 1px black; */
+      font-size:20px;
+      text-align:right;
+      padding-top: 12px;
+      margin: 0 auto;
+    }
+    /* end of 로그인영역 */
+
+
+
+    /* 검색창 영역 */
+    .search {
+      width: 100%; height: 80px; 
+      /* background-color: rgb(0, 255, 213); */
+    }
+    .search .searchBox {
+      width: 90%; height: 90%; 
+      /* background-color: #fff; border: solid 1px black; */
+      margin: 0 auto;
+    }
+    .search .searchBox .inputBox {
+      width: 89%; height: 100%;
+      font-size: 30px;
+    }
+    .search .searchBox > button {
+      width: 5%; height: 100%;
+    }
+    /* end of 검색창 영역 */
+
+
+
+    /* 해시태그 영역 */
+    .hashtag {
+      width: 100%; height: 50px; 
+      /* background-color: rgb(247, 0, 255); */
+    }
+    .hashtag .hashtagBox {
+      width: 90%; height: 90%; 
+      /* background-color: #fff; border: solid 1px black; */
+      font-size: 25px; text-align: center;
+      margin: 0 auto;
+    }
+    /* end of 해시태그 영역 */
+
+
+
+    /* 출력 영역 */
+    .screen {
+      border: 1px solid blue;
+      width: 100%; height: 1000px; 
+      /* background-color: rgb(89, 0, 255); */
+    }
+    .screen .screenBox {
+      width: 90%; height: 100%; 
+      background-color: #fff; border: solid 1px black;
+      margin: 0 auto;
+    }
+
+
+
+
+
+
+
+    /* end of 출력 영역 */
+
+
+
+  </style>
+</head>
+<body>
+  <div class="topfield">
+    <div class="top">
+      <h1 class="topBox">윗쪽 공간은 이 정도로 해놓고 작업합니다. <br>
+                         이쪽 레이아웃은 신경쓰지 마세요.
+      </h1>
+    </div>
+    <div class="nav">
+      <div class="navBox"><a style="padding: 5px;" href="#">로그인</a><a style="padding: 5px;" href="#">회원가입</a></div>
+    </div>
+    <div class="search">
+      <div class="searchBox">
+        <input class="inputBox" type="text"><button class="enter">확인</button><button class="detail">상세</button>
+      </div>
+    </div>
+    <div class="hashtag">
+      <div class="hashtagBox">
+        <!-- <a href="#">#아메리카노</a>
+        <a href="#">#카페라떼</a>
+        <a href="#">#카푸치노</a>
+        <a href="#">#프라푸치노</a>
+        <a href="#">#말차라떼</a>
+        <a href="#">#요거트수플레</a> -->
+      </div>
+    </div>
+  </div>
+
+
+  <div class="screen">
+    <div class="screenBox">
+      <div>
+        <!-- 광역시/도 -->
+        <ul class="metro">
+          <li class="metroName" id="usn">울산</li>
+          <li class="metroName" id="pus">부산</li>
+          <li class="metroName" id="gsb">경북</li>
+        </ul>
+      </div>
+      <div>
+        <!-- 구/군/시 -->
+        <ul class="district usnDistrict">
+          <li class="usnDistrictName" id="usn-nam">남구</li>
+          <li class="usnDistrictName" id="usn-jung">중구</li>
+          <li class="usnDistrictName" id="usn-buk">북구</li>
+        </ul>
+        <ul class="district pusDistrict">
+          <li class="pusDistrictName" id="pus-haeundae">해운대구</li>
+          <li class="pusDistrictName" id="pus-busanjin">부산진구</li>
+          <li class="pusDistrictName" id="pus-dongnae">동래구</li>
+        </ul>
+        <ul class="district gsbDistrict">
+          <li class="gsbDistrcitName" id="gsb-gyeongju">경주시</li>
+          <li class="gsbDistrcitName" id="gsb-gyeongsan">경산시</li>
+          <li class="gsbDistrcitName" id="gsb-yeongcheon">영천시</li>
+        </ul>
+      </div>
+      <div>
+        <!-- 동/읍/면 -->
+        <ul class="dong usn-namgu">
+          <li>신정동</li>
+          <li>삼산동</li>
+        </ul>
+        <ul class="dong usn-junggu">
+          <li>성남동</li>
+          <li>우정동</li>
+        </ul>
+        <ul class="dong usn-bukgu">
+          <li>호계동</li>
+          <li>화봉동</li>
+        </ul>
+        <ul class="dong pus-haeundaegu">
+          <li>좌동</li>
+          <li>우동</li>
+        </ul>
+        <ul class="dong pus-busanjingu">
+          <li>부전동</li>
+          <li>전포동</li>
+        </ul>
+        <ul class="dong pus-dongnaegu">
+          <li>온천동</li>
+          <li>사직동</li>
+        </ul> 
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  
+  <script>
+    const $metro = document.querySelector('.metro');
+    const $district = document.querySelector('.district');
+    const $usnDistrict = document.querySelector('.usnDistrict');
+    const $pusDistrict = document.querySelector('.pusDistrict');
+    const $gsbDistrict = document.querySelector('.gsbDistrict');
+
+    $metro.addEventListener("click", handler, false);
+    $district.addEventListener("click", handler, false);
+    $usnDistrict.addEventListener("click", handler, false);
+    $pusDistrict.addEventListener("click", handler, false);
+    $gsbDistrict.addEventListener("click", handler, false);
+    
+    function handler(evt){
+      
+
+
+
+
+
+
+    }
+      
+  
+  
+
+
+  </script>
+
+</body>
+</html>

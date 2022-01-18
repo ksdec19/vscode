@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+     h3 {
+        text-align: center;
+     }
+     input#menu {
+      width: 90%;
+     }    
+   
+     button {      
+       width: 60px;
+       
+     }    
+     /* ol li {   
+       text-align: right;
+       outline:  1px solid red;
+     }
+     ol  {
+       outline:  1px solid red;
+     } */
+  </style>
+</head>
+<body>
+  <h3>나만의 버킷리스트</h3>
+
+  <input type="text" name="menu" id="menu"><button id="addBtn">등록</button>
+  <ol class="bucketList">
+
+  </ol>
+  <script>
+    const $bucketList = document.querySelector('.bucketList');
+    
+    
+
+    $bucketList?.addEventListener('click', click_f, false); //ul 박스영역의 클릭이벤트 감지
+    addBtn?.addEventListener('click', add_f, false); //항목 추가
+    menu?.addEventListener('keyup', add_f, false);   //Enter키에 반응
+
+
+  
+
+
+    
+    let flag1 = true;
+    list(); // 버킷리스트 목록출력하기
+    
+    function click_f(evt){
+      
+      const $parent = document.querySelector('.bucketList');
+      //요소.closest(셀렉터) : 이벤트가 발생된 요소로부터 상위 요소탐색
+      const $toMove = evt.target.closest('li');
+     
+     
+      //삭제버튼 클릭시
+      if(evt.target.matches('.delBtn')){
+      
+
+        //console.log(evt);
+
+        //자식요소 제거하기
+        if($toMove){
+          if(confirm('삭제하시겠습니까?')){
+            $parent.removeChild($toMove);
+            console.log($toMove.dataset.key);
+            localStorage.removeItem($toMove.dataset.key);
+          }
+        }
+      //위로버튼 클릭시  
+      }else if(evt.target.matches('.upBtn')){
+        
+        const $target = $toMove.previousElementSibling;
+        $parent.insertBefore($toMove, $target);
+
+      //아래로버튼 클릭시  
+      }else if(evt.target.matches('.downBtn')){
+
+        const $target = $toMove.nextElementSibling;
+        if($target){
+          $target.insertAdjacentElement('afterend',$toMove);
+
+        }else{
+          //마지막 요소인경우 처음으로 이동
+          $parent.insertBefore($toMove,$parent.firstChild);
+        }
+      //처음으로 버튼 클릭시  
+      }else if(evt.target.matches('.topBtn')){
+
+        $parent.insertBefore($toMove,$parent.firstChild);
+
+      //마지막으로 버튼 클릭시
+      }else if(evt.target.matches('.bottomBtn')){
+        
+        $parent.insertBefore($toMove, null); // $parent.appendChild($toMove); 와 동일
+      
+      // 취소 버튼 클릭시
+    }else if(evt.target.matches('.cancel')){
+      console.log('취소');                  
+      window.location.reload();
+    }
+    //수정 버튼 클릭시
+    else if(evt.target.matches('.replace')){        
+      
+      const $input = document.createElement('input'); 
+      
+      if (flag1) {     
+    
+        $toMove.textContent = localStorage.getItem($toMove.dataset.key);
+          const $replace = document.createElement('button');
+          const $cancel = document.createElement('button');   
+        
+          $replace.setAttribute('class','replace');
+          $cancel.setAttribute('class','cancel');   
+          
+          $replace.textContent = '저장';
+          $cancel.textContent = '취소';               
+          
+          $toMove.appendChild($replace);
+          $toMove.appendChild($cancel);        
+                
+          
+          console.log($toMove.firstChild);
+          $input.value = $toMove.firstChild.textContent.trim();
+          $input.size = $input.value.length;   
+          $toMove.replaceChild($input, $toMove.firstChild);     
+          $toMove.firstChild.focus();      
+          flag1 = false;            
+          }
+          else {
+            if(!$toMove.firstChild.value.trim().length) {
+              $toMove.firstChild.value = '';
+              $toMove.firstChild.focus();
+              confirm('값을 입력해주세요');
+
+              return;
+            }                
+            
+            const replaceTime = $toMove.dataset.key;
+            window.localStorage.setItem(replaceTime ,$toMove.firstChild.value);
+            window.location.reload();
+
+            flag1 = true; 
+          }
+      
+    }
+  } 
+  
+
+
+    function add_f(evt){
+      // console.log(evt);
+      
+      //필수 입력체크
+      if(!menu.value.trim().length) {
+        menu.value = '';
+        menu.focus();
+        return;
+      }
+      console.log(localStorage.length);
+      
+      //입력필드에 엔터키를 눌렀거나 추가버튼 클릭이 아니면 실행 안함.
+      if(!((evt.target.tagName.toLowerCase() == 'input' && 
+      evt.type == 'keyup' && 
+      evt.key.toLowerCase() == 'enter') || (evt.target.nodeName.toLowerCase() == 'button'))) {
+        return;
+      }
+      // 개수 10개 제한
+      if(localStorage.length == 10){
+        confirm('10개이상 등록할수 없습니다.')
+        return;
+      }
+
+
+      //1) 요소(element)생성
+      const $li = document.createElement('li');  // <li></li>
+      const $delBtn = document.createElement('button');
+      const $upBtn = document.createElement('button');
+      const $downBtn = document.createElement('button');
+      const $topBtn = document.createElement('button');
+      const $bottomBtn = document.createElement('button');
+      const $replace = document.createElement('button');
+      const $cancel = document.createElement('button');   
+
+
+      // console.log($li);
+
+      //2) 속성 추가
+      // $li.setAttribute('class','item item3');
+      // $li.setAttribute('id','id3');
+      $li.setAttribute('data-key', new Date().toLocaleString());
+      
+      $delBtn.setAttribute('class','delBtn');
+      $upBtn.setAttribute('class','upBtn');
+      $downBtn.setAttribute('class','downBtn');
+      $topBtn.setAttribute('class','topBtn');
+      $bottomBtn.setAttribute('class','bottomBtn');
+      $replace.setAttribute('class','replace');
+      $cancel.setAttribute('class','replace');
+
+      // console.log($li);
+
+      //3) 컨텐츠추가
+      $li.textContent = menu.value;
+      $delBtn.textContent = '삭제';
+      $upBtn.textContent = '위';
+      $downBtn.textContent = '아래';
+      $topBtn.textContent = '최상단';
+      $bottomBtn.textContent = '최하단';
+      $replace.textContent = '수정';
+
+      // console.log($li);
+
+      //4) 부모요소에 자식요소로 추가
+      $li.appendChild($replace);
+      $li.appendChild($delBtn);
+      $li.appendChild($upBtn);
+      $li.appendChild($downBtn);
+      $li.appendChild($topBtn);
+      $li.appendChild($bottomBtn);
+      
+
+
+      //5) dom트리에 추가
+      $bucketList.appendChild($li);
+
+      //6) 로컬 저장소에 저장
+      const currTime = new Date().toLocaleString();
+      window.localStorage.setItem(currTime,menu.value);
+    }
+
+    // 저장소의 데이터 읽어와서 버킷리스트 출력하기
+    function list(){
+      //서브 dom생성
+      const $fragment = document.createDocumentFragment();
+
+      for(let i=0; i<localStorage.length; i++){
+        const key = localStorage.key(i);
+        const value = localStorage.getItem(key);
+        console.log(key, value);
+
+        const $li = document.createElement('li');
+        const $delBtn = document.createElement('button');
+        const $upBtn = document.createElement('button');
+        const $downBtn = document.createElement('button');
+        const $topBtn = document.createElement('button');
+        const $bottomBtn = document.createElement('button');
+        const $replace = document.createElement('button');
+        const $cancel = document.createElement('button');
+
+
+        $li.setAttribute('data-key', key);
+        $li.textContent = value;
+      
+       
+        $delBtn.setAttribute('class','delBtn');
+        $upBtn.setAttribute('class','upBtn');
+        $downBtn.setAttribute('class','downBtn');
+        $topBtn.setAttribute('class','topBtn');
+        $bottomBtn.setAttribute('class','bottomBtn');
+        $replace.setAttribute('class','replace');
+        $cancel.setAttribute('class','replace');
+        $cancel.setAttribute('class','replace');
+
+
+        $delBtn.textContent = '삭제';
+        $upBtn.textContent = '위';
+        $downBtn.textContent = '아래';
+        $topBtn.textContent = '최상단';
+        $bottomBtn.textContent = '최하단';
+        $replace.textContent = '수정';
+
+        $li.appendChild($replace);
+        $li.appendChild($delBtn);
+        $li.appendChild($upBtn);
+        $li.appendChild($downBtn);
+        $li.appendChild($topBtn);
+        $li.appendChild($bottomBtn);
+       
+
+        $fragment.appendChild($li);
+      }
+      $bucketList.appendChild($fragment);
+    }
+  </script>
+</body>
+</html>
